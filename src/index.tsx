@@ -8,6 +8,7 @@ import { sessionDataHandler } from "./sessionDataHandler";
 import { initConfig } from "./store/actions/initActions";
 import { ConfigState } from "./store/definitions";
 import { initLogger } from "./logger";
+import background from "./background.jpeg";
 
 const defaultConfig: ConfigState = {
     serverUrl: "http://localhost:3001",
@@ -45,7 +46,10 @@ const initWebchat = async (config: ConfigState) => {
 
     render(
         <Provider store={store}>
-            <WebchatWidget />
+            <>
+                <div style={{width: '100vw', height: '100vh', backgroundImage: `url(${background})` }} />
+                <WebchatWidget />
+            </>
         </Provider>,
         rootElement
     );
